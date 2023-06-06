@@ -1,0 +1,142 @@
+.toast-container .Toastify__toast-body {
+  white-space: nowrap;
+}
+
+.car__item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.seedetails{
+  background-color: rgb(57, 60, 57) !important;
+  border-radius: 10px !important;
+  font-size: 20px !important;
+}
+
+.listing-btn{
+  border: none !important;
+  font-size: 20px !important;
+  border-radius: 10px !important;
+}
+
+.reserve-btn{
+  background-color:rgb(178, 55, 20) !important;
+   border-radius: 10px !important;
+  font-size: 20px !important;
+  color: white !important;
+
+}
+
+.car__item:hover {
+  transform: scale(1.05);
+}
+
+.car__item .car__img img {
+  transition: transform 0.3s ease;
+}
+
+.car__item:hover .car__img img {
+  transform: scale(1.1);
+}
+
+.car__item {
+  border: 1px solid #7c8a9736;
+  padding: 20px;
+  border-radius: 5px;
+}
+.d-flex.justify-content-between > * {
+  margin-right: 40px;
+}
+
+.car__item-info span i {
+  color: #f9a826;
+  font-size: 1.1rem;
+}
+
+.car__item-btn {
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: #ff0000;
+  padding: 8px 0px;
+}
+
+.car__item-btn a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+}
+
+.car__item-btn a:hover {
+  color: #fff;
+}
+.car__btn-details {
+  background: #000000;
+  border-radius: 0px 4px 4px 0px;
+}
+
+.car__btn-rent {
+  border-radius: 4px 0px 0px 4px;
+}
+
+.car__item-content h4 {
+  font-size: 1.8rem;
+}
+
+.car__item-content h6 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.nav-link {
+  display: flex;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 992px) {
+  .car__item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  .car__item h6 {
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+
+  .car__item-info {
+    flex-wrap: wrap;
+  }
+
+  .car__item-info span {
+    font-size: 0.8rem;
+    justify-content: space-between;
+  }
+
+  .car__item-btn {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .car__item h4 {
+    font-size: 1rem;
+  }
+
+  .car__item h6 {
+    font-size: 0.9rem;
+  }
+
+  .car__item-info span {
+    font-size: 0.7rem;
+  }
+
+  .car__item-info span i {
+    font-size: 0.9rem;
+  }
+
+  .car__item-btn {
+    font-size: 0.8rem;
+  }
+}

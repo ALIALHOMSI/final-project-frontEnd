@@ -1,0 +1,147 @@
+.slider__item {
+  height: 100vh;
+}
+
+.slider__item-02 {
+  background: linear-gradient(rgba(7, 7, 7, 0.635), rgba(33, 29, 29, 0.712)),
+    url("./images/slider1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider__item-01 {
+  background: linear-gradient(rgba(7, 7, 7, 0.618), rgba(54, 51, 51, 0.712)),
+    url("./images/slider2.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider__item-03 {
+  background: linear-gradient(rgba(7, 7, 7, 0.618), rgba(54, 51, 51, 0.712)),
+    url("./images/slider4.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.slider__item-04 {
+   background: linear-gradient(rgba(7, 7, 7, 0.635), rgba(33, 29, 29, 0.712)),
+    url("./images/slider3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} 
+
+.hero__slider {
+  overflow: hidden;
+}
+
+.slider__content {
+  color: rgb(245, 239, 239);
+ 
+  
+
+  padding-top: 130px;
+  text-align: left;
+}
+.slider__content h1 {
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  
+
+  font-size: 80px;
+
+  text-align: left;
+}
+
+.slider__content h2 {
+  color: white;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  width: 35%;
+
+  font-size: 30px;
+
+  text-align: left;
+}
+
+.reserve__btn {
+  font-size: 25px;
+  background-color:rgb(178, 55, 20);
+  border: none;
+  border-radius: 7px;
+  width: 150px;
+  height: 50px;
+  
+}
+
+.reserve__btn a {
+  text-decoration: none;
+  color:white;
+}
+
+@media only screen and (max-width: 992px) {
+  .slider__item {
+    height: 430px;
+    max-width: 100vw;
+  }
+
+  .slider__content {
+    margin-top: -50px;
+  }
+
+  .slider__content h1 {
+    font-size: 2rem;
+  }
+  .reserve__btn {
+    font-size: 12px;
+    border: none;
+
+    width: 10vw;
+    height: 5vh;
+  }
+
+
+
+  .slider__content h2 {
+    color: white;
+
+    width: 100%;
+
+    font-size: 15px;
+
+    text-align: left;
+  }
+
+  .slider__content {
+    color:rgb(178, 55, 20);
+    margin-left: 5vh;
+
+    padding-top: 150px;
+    text-align: left;
+  }
+}
+
+@media only screen and (max-width: 785px) {
+  .slider__item {
+    height: 450px;
+  }
+
+  .slider__content h1 {
+    font-size: 1.5rem;
+  }
+
+  .slider__content h2 {
+   width: 400px;
+  }
+
+  .seemore-btn{
+   
+    width: 100px;
+    font-size: 15px;
+  }
+}

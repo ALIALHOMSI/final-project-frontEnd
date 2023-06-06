@@ -1,0 +1,90 @@
+
+.login_title{
+  color: #171515;
+  display: flex;
+  justify-content: center;
+}
+.register_page {
+width: 40%;
+margin: auto;
+display: flex;
+flex-direction: column;
+/* position: relative;
+z-index: 1; */  
+
+padding: 45px;
+text-align: center;
+box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+border-radius: 15px;
+margin-top: 190px;
+}
+
+.registerbtn{
+background-color: rgb(178, 55, 20) !important;
+font-size: 20px ;
+border: none;
+padding: 10px;
+}
+.register_page label{
+ padding: 10px;
+}
+.register_button{
+text-transform: uppercase;
+background:rgb(178, 55, 20);
+border: 0;
+padding: 15px;
+color: #FFFFFF;
+font-size: 14px;
+transition: all 0.3 ease;
+cursor: pointer;
+}
+.register_page button:hover,.register_page button:active,.register_page button:focus {
+  background:rgb(178, 55, 20);
+  opacity: 65%;
+}
+
+.register_page input {
+background: #f2f2f2;
+width: 90%;
+border: 0;
+margin: 0 0 15px;
+padding: 15px;
+box-sizing: border-box;
+font-size: 14px;
+height: 2.6vw;
+}
+.register_page select {
+  background: #f2f2f2;
+  width: 90%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  height: 2.6vw;
+
+}
+.register_options{
+  display: flex;
+}
+.left-options{
+width: 60%;
+}
+.right-options{
+  width: 60%;
+}
+
+
+
+.register_page .message {
+margin: 15px 0 0;
+color: #b3b3b3;
+font-size: 12px;
+}
+.register_page .message a {
+color: #171515;
+text-decoration: none;
+}
+.register_page .register-form {
+display: none;
+}

@@ -1,0 +1,51 @@
+.toast-container .Toastify__toast-body {
+  white-space: nowrap;
+}
+
+.car-details-container {
+    margin-top: 100px;
+  }
+  
+  .car-nav-container {
+    background-color: #8c7e7e;
+    flex-wrap: nowrap;
+    width: 60%;
+    border-bottom: 1px solid red;
+  }
+  
+  .car-nav-link {
+    background-color: #222222;
+    color: #ffffff;
+    padding: 15px 25px 10px 25px;
+    font-weight: 600;
+    font-size: 14px;
+    width: 200px;
+    display: inline-block;
+  }
+  
+  .car-nav-link.active {border-bottom: 3px solid #8b0000;
+  }
+  
+  .car-item-btn {
+  border-radius: 40px;
+  margin-left: 10px;
+  margin-top: 50px;
+  }
+  
+  .car-btn-rent {
+  background-color: #8b0000;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  
+  }
+  
+  .car-btn-rent:hover {
+  background-color: #222222;
+  color: #ffffff;
+  }
+  
+  @media (max-width: 767.98px) {
+  .car-nav-container {
+  width: 100%;
+  }
+  }

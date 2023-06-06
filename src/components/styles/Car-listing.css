@@ -1,0 +1,12 @@
+.custom-menu {
+  display: flex;
+  flex-direction: row;
+}
+.category-container {
+  margin-bottom: 20px; 
+} 
+.category-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
