@@ -128,8 +128,20 @@ function ProductList() {
   });
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <div class="center">
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>;
   }
+  
 
   return (
     
@@ -165,11 +177,16 @@ function ProductList() {
         {filteredProducts.map((product) => (
           
           <li key={product.id} className="product-item">
-             <div className="product-images">
-              {product.images.map((imageUrl, idx) => (
-                <img key={idx} src={imageUrl} alt={product.name} />
-              ))}
-            </div>
+            
+            <div className="product-images">
+  <div className="scroll-container">
+    {product.images.map((imageUrl, idx) => (
+      <div className="image-container" key={idx}>
+        <img className="product-image" src={imageUrl} alt={product.name} />
+      </div>
+    ))}
+  </div>
+</div>
             <h2>{product.name}</h2>
             <p>{product.description}</p>
            
