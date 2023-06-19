@@ -90,8 +90,7 @@
     .sub_list{
       width:auto;
     }
-    /*============================*/
-    /*THIS IS THE EXPANDING TRIGGER*/
+
     a[name="expand"]:focus + .submenu_list, a[name="expand"]:active + .submenu_list {
       display:block;
     }

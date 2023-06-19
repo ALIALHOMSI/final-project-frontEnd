@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../cartFunctionality/cart.css';
+import cartBanner from '../../assets/cart-banner.jpeg'
 
 function Cart() {
   const [loading, setLoading] = useState(true);
@@ -83,32 +84,53 @@ function Cart() {
     fetchCartItems();
   }, []);
 
-  if (loading) {
-    return <p>Loading...</p>;
+   if (loading) {
+    return (
+      <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+    );
   }
 
   return (
     <div className="cart-container">
-      <h1>Cart</h1>
+      <div className="cart-banner">
+      <img className="banner" src={cartBanner} alt="cart banner" />
+      <h1 className="cart-title">Cart</h1>
+      </div>
       <ul className="cart-items">
         {cartItems.map((cartItem) => (
           <li key={cartItem.id} className="cart-item">
-            <h2>{cartItem.name}</h2>
-            <p>{cartItem.description}</p>
+           <div className="inside-cart">
             <div className="cart-item-image">
-              {cartItem.imageUrl && <img src={cartItem.imageUrl} alt={cartItem.name} />}
+              {cartItem.imageUrl && <img className="cart-item-image" src={cartItem.imageUrl} alt={cartItem.name} />}
               {!cartItem.imageUrl && <p>No Image</p>}
             </div>
+            <h1 className="cart-item-name">{cartItem.name}</h1>
+            <div className="cart-info">
+             
+            <p>{cartItem.description}</p>
             <p>{cartItem.color}</p>
             <p>{cartItem.size}</p>
             <p>{cartItem.price}</p>
             <p>{cartItem.gender}</p>
             <p>{cartItem.type}</p>
-            <p>Quantity: {cartItem.cartItemQuantity}</p>
+            <p>In Cart: {cartItem.cartItemQuantity}</p>
+            </div>
+            </div>
           </li>
         ))}
       </ul>
-      <p className="total-price">Total Price: {calculateTotalPrice()}</p>
+      <p className="total-price">Total Price: ${calculateTotalPrice()}</p>
       <button className="clear-cart-button" onClick={handleClearCart}>Clear Cart</button>
     </div>
   );

@@ -5,10 +5,10 @@ import './Footer.css'
 function Footer() {
   return(<div className="footer">
     <div className="footer-2">
-    <a href=""><img src={fb} alt="" /></a>
-    <a href=""><img src={instagram} alt="" /></a>
+    <a href="/img"><img src={fb} alt="" /></a>
+    <a href="/img"><img src={instagram} alt="" /></a>
     </div>
-    <p>© 2023 ROADCAR. ALL RIGHTS RESERVED CREATED BY MLALH</p> 
+     
   </div>);
 }
 

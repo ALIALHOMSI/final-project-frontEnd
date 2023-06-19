@@ -27,7 +27,7 @@ function Home() {
           <div className="home-imagecollection">
    
             <div className="container-home">
-              <img className="home-audi" src={tshirtlogo} alt="shirt"></img>
+              <img className="home-clothes" src={tshirtlogo} alt="shirt"></img>
               <div className="overlay">
                 <h1>T-Shirt</h1>
                 <br></br>
@@ -38,7 +38,7 @@ function Home() {
             </div>
 
             <div className="container-home">
-              <img className="home-audi" src={pantslogo} alt="pants"></img>
+              <img className="home-clothes" src={pantslogo} alt="pants"></img>
               <div className="overlay">
                 <h1>Pants</h1>
                 <br></br>
@@ -50,7 +50,7 @@ function Home() {
         
 
             <div className="container-home">
-              <img className="home-audi" src={shoeslogo} alt="BMW"></img>
+              <img className="home-clothes" src={shoeslogo} alt="shoes"></img>
               <div className="overlay">
                 <h1>Shoes</h1>
                 <br></br>

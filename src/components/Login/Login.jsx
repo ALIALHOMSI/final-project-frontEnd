@@ -7,8 +7,8 @@ function LoginPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [error] = useState("");
+  const [, setLoading] = useState(true);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -25,6 +25,7 @@ function LoginPage() {
           body: JSON.stringify({ email, password }),
         }
       );
+      
       if (!response.ok) {
         const data = await response.json();
         throw new Error(data.message);
@@ -39,11 +40,11 @@ function LoginPage() {
         swal({
           title: "Login successful",
           icon: "success",
+         
         }).then(() => {
           if (data.role === "admin") {
             window.location.href = "/Admin/Home";
           } else if (data.role === "user") {
-            window.location.href = "/";
           }
         });
       } else {
@@ -53,6 +54,8 @@ function LoginPage() {
           icon: "error",
         });
       }
+      navigate("/");
+      window.location.reload();
     } catch (error) {
       console.error(error);
     }
@@ -82,7 +85,7 @@ function LoginPage() {
           {error && <p className="error">{error}</p>}
           <p className="message">
             Not registered?{" "}
-            <a href="#" onClick={() => navigate("/register")}>
+            <a href="/register" >
               Create an account
             </a>
           </p>

@@ -1,0 +1,20 @@
+.logout{
+    background-color: transparent;
+    color: #888;
+    border:transparent;
+    font-size: large;
+    font-family:consolas,courier,monospace;
+    display: flex;
+    cursor: pointer;
+}
+.logout:hover{
+    color:#fff;
+    border-bottom:10px solid #be3f3f;
+    border-top:10px solid #be3f3f;
+    outline:0;
+
+}
+.log-out-icon{
+    height:25px;
+    width: 25px;
+}

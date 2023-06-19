@@ -7,7 +7,7 @@
   font-weight: 500px;
 }
 
-/* Sticky pic */
+
 
 .home-stickyImage {
   text-align: center;
@@ -20,9 +20,7 @@
   background-size: cover;
 }
 
-/* Why us and Featured cars */
-/* Why us and Featured cars */
-/* Why us and Featured cars */
+
 
 .whyUsText {
   color: white;
@@ -30,7 +28,7 @@
   padding: 16px 32px;
 }
 
-.home-audi {
+.home-clothes {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -87,7 +85,7 @@
 
 
 
-.container-home:hover .home-audi {
+.container-home:hover .home-clothes {
   opacity: 0.3;
 }
 
@@ -129,11 +127,7 @@
   font-size: 45px;
 }
 
-/* Reasons to buy section */
-/* Reasons to buy section */
-/* Reasons to buy section */
-/* Reasons to buy section */
-/* Use relative units */
+
 .home-imageFooter {
   text-align: center;
   height: 800px;
@@ -183,12 +177,6 @@
   color:rgb(178, 55, 20);
 }
 
-.home-payicon {
-  border: 2px solid burlywood;
-  width: 100px;
-  height: 90px;
-  border-radius: 50%; /* Use relative unit */
-}
 
 .home-text {
   width: 70%;

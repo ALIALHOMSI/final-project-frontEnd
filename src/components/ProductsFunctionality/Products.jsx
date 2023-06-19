@@ -4,12 +4,14 @@ import { useNavigate } from "react-router-dom";
 
 import "../ProductsFunctionality/products.css"; // Import external CSS file
 import productBanner from '../../assets/product_banner1.jpg';
+import swal from "sweetalert";
 function ProductList() {
   const [loading, setLoading] = useState(true);
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedGender, setSelectedGender] = useState("all");
   const navigate = useNavigate();
+  const [currentImageIndexes, setCurrentImageIndexes] = useState({});
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -39,6 +41,11 @@ function ProductList() {
 
       setProducts(products);
       setLoading(false);
+      setCurrentImageIndexes(
+        products.reduce((indexes, product) => {
+          return { ...indexes, [product.id]: 0 };
+        }, {})
+      );
     } catch (error) {
       console.error(error);
     }
@@ -47,6 +54,7 @@ function ProductList() {
   useEffect(() => {
     fetchProducts();
   }, []);
+
 
   const handleAddToCart = async (product) => {
     try {
@@ -57,34 +65,42 @@ function ProductList() {
         navigate("/login");
         return;
       }
-
+  
       // The user is logged in, proceed with adding the product to the cart
       const productImageRes = await axios.get(
         `http://localhost:5000/api/productimage/getAll?productInfoId=${product.id}`
       );
       const productImageId = productImageRes.data[0]._id;
-
+  
       const res = await axios.post(
         "http://localhost:5000/api/cart/create",
         {
           userId: 123, // Replace with actual user ID
           productInfoId: product.id,
           productImageId: productImageId,
-          cartItemQuantity: product.cartItemQuantity, // Make sure this is correct
+          cartItemQuantity: product.cartItemQuantity,
           price: product.price,
         },
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`, // Include the token in the request headers
+            Authorization: `Bearer ${token}`, 
           },
         }
       );
-      console.log(res.data); // Replace with actual handling of response data
+  
+      // Product added successfully, show the success message
+      swal({
+        title: "Added successfully",
+        icon: "success",
+      });
+  
+      console.log(res.data); 
     } catch (err) {
       console.error(err);
     }
   };
+  
 
   const handleQuantityChange = (productId, newQuantity) => {
     setProducts((prevProducts) => {
@@ -103,11 +119,28 @@ function ProductList() {
 
   const handleSearch = (e) => {
     setSearchQuery(e.target.value);
-    setSelectedGender("all"); // Reset selected gender when performing a search
+    setSelectedGender("all"); 
   };
 
   const handleGenderChange = (e) => {
     setSelectedGender(e.target.value);
+  };
+
+  const handleImageNavigation = (productId, direction) => {
+    setCurrentImageIndexes((prevIndexes) => {
+      const currentIndex = prevIndexes[productId];
+      const imageCount = products.find((product) => product.id === productId)?.images.length;
+      if (imageCount) {
+        let newIndex = currentIndex + direction;
+        if (newIndex < 0) {
+          newIndex = imageCount - 1;
+        } else if (newIndex >= imageCount) {
+          newIndex = 0;
+        }
+        return { ...prevIndexes, [productId]: newIndex };
+      }
+      return prevIndexes;
+    });
   };
 
   const filteredProducts = products.filter((product) => {
@@ -128,39 +161,38 @@ function ProductList() {
   });
 
   if (loading) {
-    return <div class="center">
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </div>;
+    return (
+      <div class="center">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+      </div>
+    );
   }
-  
 
   return (
-    
     <div className="product-list">
       <div className="product-banner">
-        <img className="banner" src={productBanner} alt="banner">
-          
-        </img>
+        <img className="banner" src={productBanner} alt="banner" />
         <h1 className="banner-text">Product List</h1>
-        </div>
-      
+      </div>
+
       <div className="search-container">
-        <input className="search-bar"
+        <input
+          className="search-bar"
           type="text"
           placeholder="Search..."
           value={searchQuery}
           onChange={handleSearch}
         />
-          <select
+        <select
           id="gender-select"
           value={selectedGender}
           onChange={handleGenderChange}
@@ -171,44 +203,76 @@ function ProductList() {
           <option value="unisex">Unisex</option>
         </select>
       </div>
-   
+
       <div className="products-div">
-      <ul className="product-cards">
-        {filteredProducts.map((product) => (
-          
-          <li key={product.id} className="product-item">
-            
-            <div className="product-images">
-  <div className="scroll-container">
-    {product.images.map((imageUrl, idx) => (
-      <div className="image-container" key={idx}>
-        <img className="product-image" src={imageUrl} alt={product.name} />
-      </div>
-    ))}
-  </div>
-</div>
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-           
-            <p>{product.color}</p>
-            <p>{product.size}</p>
-            <p>{product.price}</p>
-            <p>{product.gender}</p>
-            <p>{product.type}</p>
-            <p>{product.quantity} Items in Stock</p>
-          
-            <input className="quantity-input"
-              type="number"
-              value={product.cartItemQuantity}
-              onChange={(e) =>
-                handleQuantityChange(product.id, parseInt(e.target.value))
-              }
-              min={1}
-            />
-            <button onClick={() => handleAddToCart(product)}>Add to cart</button>
-          </li>
-        ))}
-      </ul>
+        <ul className="product-cards">
+          {filteredProducts.map((product) => (
+            <li key={product.id} className="product-item">
+              <div className="product-images">
+                {product.images[currentImageIndexes[product.id]] && (
+                  <img
+                    className="product-image"
+                    src={product.images[currentImageIndexes[product.id]]}
+                    alt={product.name}
+                    onLoad={() => {}}
+                  />
+                )}
+
+                <div className="card-info">
+                  <div className="navigation-buttons">
+                    <button
+                      onClick={() =>
+                        handleImageNavigation(product.id, -1)
+                      }
+                    >
+                      Previous
+                    </button>
+                    <button
+                      onClick={() =>
+                        handleImageNavigation(product.id, 1)
+                      }
+                    >
+                      Next
+                    </button>
+                  </div>
+
+                  <div className="product-details">
+                    <h1>{product.name}</h1>
+                    <p>{product.description}</p>
+                    <p>{product.color}</p>
+                    <p>{product.size}</p>
+                    <p>{product.gender}</p>
+                    <p>{product.quantity}</p>
+                    <h4>${product.price}</h4>
+                  </div>
+
+                  <div className="cart-quantity">
+                    <label htmlFor="quantity-input">Quantity:</label>
+                    
+                    <input
+                      id="quantity-input"
+                      type="number"
+                      min="1"
+                      max={product.quantity}
+                      value={product.cartItemQuantity}
+                      onChange={(e) =>
+                        handleQuantityChange(product.id, parseInt(e.target.value))
+                      }
+                      
+                    />
+                  </div>
+                </div>
+                  <button
+                    className="add-to-cart-button"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to Cart
+                  </button>
+                
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
