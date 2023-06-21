@@ -1,0 +1,29 @@
+* {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+.footer{
+    background-color: #252323;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+}
+.footer-2{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+.footer img{
+    flex-basis:50px;
+    height: 3rem;
+    width:auto;
+    margin: 10px;
+    padding: 10px;
+}
+.footer p{
+    margin: 0 auto 30px auto;
+}

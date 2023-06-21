@@ -1,0 +1,39 @@
+.product-list-container {
+    margin: 20px;
+  }
+  
+  .create-product-form {
+    margin-bottom: 20px;
+  }
+  
+  .create-product-form label,
+  .create-product-form input,
+  .create-product-form textarea,
+  .create-product-form button {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .product-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .product-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .product-info {
+    flex: 1;
+  }
+  
+  .add-product-info-button {
+
+    font-size: 12px;
+    width: 50px;
+    margin-right: 76%;
+  }
+  
+  
