@@ -10,6 +10,7 @@ import Shirt from '../components/ProductsFunctionality/ProductsTypeFilter/shirtP
 import Pants from '../components/ProductsFunctionality/ProductsTypeFilter/pantsProduct.jsx';
 import Shoes from '../components/ProductsFunctionality/ProductsTypeFilter/shoesProduct.jsx';
 import Register from '../components/Register/Register.jsx';
+
 const Routers = () => {
   return (
     <div className="App">
